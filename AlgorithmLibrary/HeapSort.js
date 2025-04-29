@@ -225,9 +225,15 @@ HeapSort.prototype.updateCallback = function (ignored) {
 
   var text_content = userArray.value;
 
-  // sanity check
+
   console.log(text_content)
-  var upArray = userArray.value.split(", ").map(Number);
+  var upArray = userArray.value
+      .split(",")
+      .map(s => s.trim())
+      .map(Number);
+
+  upArray.unshift(null);
+
   console.log(upArray)
   var text_input = document.getElementById("message-text");
   for (var i = 0; i < upArray.length; i++) {
